@@ -1,0 +1,98 @@
+<div class="col-sm-12 col-md-12">
+    <div class="text-center">
+        <h4 class="header">Login Form</h4>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+
+
+            <!-- Material form login -->
+
+           
+
+                <form name="Form" class="col-sm-12">
+                   
+                        <!-- Material input email -->
+                        <div class="md-form">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="email" id="Email" class="form-control validate" ng-model='LoginCtrl.data.email'  name="Email"  ng-required='true' >
+                            <label for="Email" >Email</label>
+                        </div>
+
+
+                        <div ng-show="Form.Email.$touched && Form.Email.$invalid ">
+                            <div class="row" id="alert_box">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="card red lighten-2">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-10">
+                                                <div class="card-content white-text">
+                                                    <p>Please enter the Email </p>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+
+                   
+                        <!-- Material input password -->
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input type="password" id="password" class="form-control validate" ng-model='LoginCtrl.data.password' name="password"  ng-required='true' >
+                            <label for="password " >Password</label>
+                        </div>
+                        
+                        <div ng-show="Form.password.$touched && Form.password.$invalid ">
+                            <div class="row" id="alert_box">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="card red lighten-2">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-10">
+                                                <div class="card-content white-text">
+                                                    <p>Please enter the Password </p>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                   
+                </form>
+
+                <div ng-if="LoginCtrl.error">
+                        <div class="alert alert-danger my-2" role="alert">
+                                {{LoginCtrl.error}}
+                              </div>
+                    </div>
+            
+
+        
+        <div class="card-action text-center">
+            <span>Don't Have an Account?
+                <a href="#!/signup">Register Here</a>
+            </span>
+            <br>
+            <span>Don't remember you password?
+                <a href="#!/forgot">Click Here</a>
+            </span>
+            <br>
+            <hr>
+            <a class="btn btn-dark waves-effect" href ng-click="LoginCtrl.Login(LoginCtrl.data)" ng-disabled="Form.$invalid">Login</a>
+            <a class="btn btn-danger waves-effect" href='http://localhost:4000/auth/google' > Login with Google &nbsp; <i class="fa fa-google" aria-hidden="true"></i></a>
+            
+
+        </div>
+
+    </div>
+</div>

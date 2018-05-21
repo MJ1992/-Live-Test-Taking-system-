@@ -1,0 +1,52 @@
+<div class="row ">
+    <div class="col-sm-12 mx-auto">
+        <div class="card">
+                <div class="card-header grey darken-3 white-text ">All Tests</div>
+            <div class="card-body z-depth-2">
+                    
+                <ul class="list-group">
+
+                    <li ng-repeat="test in testsCtrl.tests " class="list-group-item my-2 hoverable">
+                        <test-card></test-card>
+                        <button  class=" btn btn-dark" data-toggle="modal" data-target="#startTest" ng-click='testsCtrl.getId(test._id)'>Start Test</button>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="startTest" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header special-color white-text">
+                    <h5 class="modal-title " id="title">Test Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <b>Pleas read the instruction carefully before clicking on Accept Button</b>
+                    <p>1. All the Questions are MCQ based. </p>
+                    <p>2. Candidates will be awarded  mark shown on the right corner side of each question for each correct answer and 1/4th of the points will be deducted for each incorrect answer. For every skipped question no points will be deducted. </p>
+                    <p>3. This test has a time limit.You have to submit your test in the given time.In case of timeout your test will be  automatically submitted  </p>
+                    <p>4. Each question has four options and only one of them is correct</p>
+                    <p>5. Click on the option to select that option as your answer</p>
+                    <p>6. Click on remove selected option button if you want to change your answer and then click on desired option</p>
+                    <p>7. Click on Continue to go to next question.You can also click on numbered button above to go to a particular question </p>
+                    <p>8. When you want to submit the test click on submit button.A confirmation prompt will be displayed Click on yes if you want to submit and no if you don't </p>
+                    <p>9. When you click on Accept button shown below you will be redirect to a new window and your test timer will start</p>
+                    <p>10. Dont reload or refresh the window otherwise you will lose all your progress.When you submit or time ends you test will be submitted automatically and you will be shown your result</p>
+                    <hr>
+                    Best of Luck!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger"  data-dismiss="modal">Cancel</button>
+                    <a  target="_blank" ng-click="testsCtrl.startTest()" class=" btn btn-dark" data-dismiss="modal">Accept</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,79 @@
+<div class="row mt-2">
+    <div class=" col-md-4 my-1">
+        <div class="card">
+            <div class="card-header deep-orange lighten-1  white-text"></div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Number of Tests Taken</h4>
+                <hr>
+                <h4><b> {{DashboardCtrl.numberOfTestTaken}} </b> </h4>
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-4 my-1">
+        <div class="card">
+            <div class="card-header success-color lighten-3 white-text"></div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Average Score</h4>
+                <hr>
+               <h4> <b> {{DashboardCtrl.averageScore}} </b> </h4>
+
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-4 my-1">
+        <div class="card">
+            <div class="card-header primary-color lighten-3 white-text"></div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Average Percentage</h4>
+                <hr>
+                <!--Change chart-->
+                <h4>   <b> {{DashboardCtrl.averagePercentage}} % </b> </h4>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row mt-4 ">
+    <div class="col-sm-10 col-md-10 mx-auto">
+        <div class="card">
+            <div class="card-header unique-color z-depth-0 white-text">Percentage per Test</div>
+            <div class="card-body">
+
+                <canvas id="barChart"></canvas>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row my-2">
+    <div class="col-sm-12 col-md-12 mx-auto ">
+        <div class="card">
+            <div class="card-header grey darken-4 white-text ">Test Taken</div>
+            <div class="card-body z-depth-2">
+
+                <ul class="list-group">
+
+                    <li ng-repeat="test in  DashboardCtrl.userData.TestsTaken " class="list-group-item my-2 hoverable">
+                        <a ng-href="#!/tests/{{test._id}}/result" class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <h3 class="mdb-color-text darken-4">{{test.testId.name}} </h3>
+                                    <hr>
+                                    <p class=" blue-grey-text  lighten-1">{{ test.testId.questions.length + ' '}} Questions</p>
+                                    <p class=" blue-grey-text  lighten-1">{{ test.testId.duration + ' '}} minutes</p>
+                                    <p class=" blue-grey-text  lighten-1">Given on: {{ test.submittedOn | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+                                </div>
+
+
+                            </div>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

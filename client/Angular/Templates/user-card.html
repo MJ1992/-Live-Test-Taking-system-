@@ -1,0 +1,20 @@
+
+    <div class="row">
+        <div class="col-md-2">
+            <img ng-src="https://ui-avatars.com/api/?name={{user.email}}&background=EE6E73&color=fff" alt="" class="circle">
+
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-9">
+                    <h3 class="mdb-color-text darken-4">{{user.name}} </h3>
+                    <hr>
+                    <p class=" blue-grey-text  lighten-1">Email: {{ ' ' + user.email }} </p>
+                    <p class=" blue-grey-text  lighten-1">Mobile: {{' ' + user.mobile }} </p>
+                </div>
+                <div class="col-md-3 ">
+                        <a ng-href="#!/users/{{user._id}}" class="waves-effect waves-light btn teal accent-3  pull-right">View</a>
+                </div>
+            </div>
+        </div>
+    </div>

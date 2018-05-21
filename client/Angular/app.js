@@ -1,0 +1,1 @@
+var app = angular.module('PMCAT', ['ngRoute', 'ngStorage', 'ngAnimate','timer']);

@@ -1,0 +1,319 @@
+<!-- Test Details -->
+<div class="row">
+        <div class="col-md-8">
+                <h1 class="teal-text accent-3">{{sTestCtrl.test.name}}</h1>
+                <h2 class="mdb-color-text darken-3 ">{{sTestCtrl.test.details}}</h2>
+                <h5 class=" blue-grey-text lighten-3 ">Test Duration : {{sTestCtrl.test.duration}} mins.</h5>
+        </div>
+</div>
+<hr>
+
+<button type="button" class="btn btn-dark " data-toggle="modal" data-target="#editTest">
+    Edit Test Details
+</button>
+<button type="button" class="btn btn-danger " ng-click="sTestCtrl.deleteTest()">
+    Delete test
+</button>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addQuestion">
+    Add Question
+</button>
+
+<!-- Questions in Test -->
+<div class="row">
+    <div class="col-sm-12 mx-auto">
+        <div class="card-panel white">
+
+            <div class="row" style="margin-top: 15px;">
+
+
+                <div id="all1" class="col-sm-12 ">
+                    <ul class="list-group m12" style="border: 0px;">
+                        <li ng-repeat="question in sTestCtrl.test.questions " class="list-group-item  hoverable" style="margin-top: 15px; margin-bottom: 15px;">
+                            <question-card></question-card>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Test Details edit Modal-->
+
+
+<div class="modal fade" id="editTest" tabindex="-1" role="dialog" aria-labelledby="addQuestionTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header special-color z-depth-1 white-text">
+                <h5 class="modal-title" id="addQuestionTitle">Test Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="Form">
+                    <div class="md-form">
+                        <label for="name" class="active">Name</label>
+                        <input type="text" name='name' ng-model='sTestCtrl.testData.name' ng-required="true" class="form-control validate" id="name" >
+                    </div>
+                    <div ng-show="Form.name.$touched && Form.name.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Name.
+                                  </div>
+                        </div>
+                    <div class="md-form">
+                        <label for="details" class="active">Details</label>
+                        <textarea type="text"  name ='details' ng-model='sTestCtrl.testData.details' ng-required="true" class="form-control validate md-textarea" id="details" ></textarea>
+                    </div>
+                    <div ng-show="Form.details.$touched && Form.details.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Details.
+                                  </div>
+                        </div>
+                    <div class="md-form">
+                        <label for="duration" class="active">Test Duration (in mins.)</label>
+                        <input type="number" name ='duration' ng-model='sTestCtrl.testData.duration' ng-required="true" class="form-control validate" id="duration" >
+                    </div>
+                    <div ng-show="Form.duration.$touched && Form.duration.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Test Duration.
+                                  </div>
+                        </div>
+
+
+                </form>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" ng-disabled="Form.$invalid" ng-click='sTestCtrl.UpdateTest(sTestCtrl.testData)' data-dismiss="modal" class="btn btn-primary">Update Test Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Add Question Modal -->
+<div class="modal fade" id="addQuestion" tabindex="-1" role="dialog" aria-labelledby="addQuestionTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header special-color white-text">
+                <h5 class="modal-title" id="addQuestionTitle">Question Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="Form1">
+
+                    <div class="md-form">
+                        <label for="question">Question Statement</label>
+                        <textarea type="text" name = "ques" ng-required="true" class="form-control validate md-textarea" id="question" ng-model="sTestCtrl.quesData.quesStatement" ></textarea>
+                    </div>
+                    <div ng-show="Form1.ques.$touched && Form1.ques.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Question Statement.
+                                  </div>
+                        </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name='option1' ng-model="sTestCtrl.quesData.options.optionA" ng-required="true" class="form-control validate" placeholder="Option 1">
+                        </div>
+                        <div class="col">
+                            <input type="text" name='option2' ng-required="true" class="form-control validate" ng-model="sTestCtrl.quesData.options.optionB" placeholder="Option 2">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <input type="text" name='option3' ng-required="true" class="form-control validate" ng-model="sTestCtrl.quesData.options.optionC" placeholder="Option 3">
+                        </div>
+                        <div class="col">
+                            <input type="text" name='option4' ng-required="true" class="form-control validate" ng-model="sTestCtrl.quesData.options.optionD" placeholder="Option 4">
+                        </div>
+                    </div>
+                    <div ng-show="Form1.option1.$touched && Form1.option1.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Option1.
+                                  </div>
+                        </div>
+                        <div ng-show="Form1.option2.$touched && Form1.option2.$invalid ">
+                                <div class="alert alert-danger my-2" role="alert">
+                                        Please Enter Option2.
+                                      </div>
+                            </div>
+                            <div ng-show="Form1.option3.$touched && Form1.option3.$invalid ">
+                                    <div class="alert alert-danger my-2" role="alert">
+                                            Please Enter Option3.
+                                          </div>
+                                </div>
+                                <div ng-show="Form1.option4.$touched && Form1.option4.$invalid ">
+                                        <div class="alert alert-danger my-2" role="alert">
+                                                Please Enter Option4.
+                                              </div>
+                                    </div>
+                    <div class="md-form">
+                        <label for="Points">Points</label>
+                        <input  name= "points" ng-model='sTestCtrl.quesData.points' type="number" ng-required="true" class="form-control validate" id="Points" >
+                    </div>
+                    <div ng-show="Form1.points.$touched && Form1.points.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter points.
+                                  </div>
+                        </div>
+                    
+                    <label class="my-2 mr-2" for="inlineFormCustomSelectPref">Answer</label>
+                    <select name= "dropdown" class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" ng-model="sTestCtrl.quesData.answer" ng-required='true'>
+                        
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <div ng-show="Form1.dropdown.$touched && Form1.dropdown.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter  Answer option.
+                                  </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" ng-disabled="Form1.$invalid" ng-click='sTestCtrl.addQuestion(sTestCtrl.quesData)' data-dismiss="modal" class="btn btn-primary">Add this Question</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Question -->
+<div class="modal fade" id="editQuestion" tabindex="-1" role="dialog" aria-labelledby="addQuestionTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header special-color white-text">
+                <h5 class="modal-title" id="addQuestionTitle">Edit Question Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="Form2">
+
+                    <div class="md-form">
+                        <label class='active' for="question">Question Statement</label>
+                        <textarea type="text" name="ques" ng-required="true" class="form-control validate md-textarea" id="question" value="sTestCtrl.quesData.quesStatement" ng-model="sTestCtrl.quesData.quesStatement"></textarea>
+                    </div>
+                    <div ng-show="Form2.ques.$touched && Form1.ques.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Question Statement.
+                                  </div>
+                        </div>
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="md-form form-inline">
+                                <label class='active' for="optionA">
+                                    <b>1:</b>
+                                </label>
+                                <input type="text"  name="option1" id='optionA' value="sTestCtrl.quesData.options.optionA" ng-model="sTestCtrl.quesData.options.optionA"
+                                    ng-required="true" class="form-control validate">
+                            </div>
+                        </div>
+                        <div class="col">
+
+                            <div class="md-form form-inline">
+                                <label class='active' for="optionB">
+                                    <b>2:</b>
+                                </label>
+                                <input type="text" id="optionB"name="option2" ng-required="true" class="form-control validate" value="sTestCtrl.quesData.options.optionB" ng-model="sTestCtrl.quesData.options.optionB">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="md-form form-inline">
+                                <label class='active' for="optionC">
+                                    <b>3:</b>
+                                </label>
+                                <input type="text" id='optionC' name="option3" ng-required="true" class="form-control validate" value="sTestCtrl.quesData.options.optionC" ng-model="sTestCtrl.quesData.options.optionC">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form form-inline">
+                                <label class='active' for="optionD">
+                                    <b>4:</b>
+                                </label>
+                                <input type="text" id="optionD" name="option4" ng-required="true" class="form-control validate" value="sTestCtrl.quesData.options.optionD" ng-model="sTestCtrl.quesData.options.optionD">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="Form2.option1.$touched && Form2.option1.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Option1.
+                                  </div>
+                        </div>
+                        <div ng-show="Form2.option2.$touched && Form2.option2.$invalid ">
+                                <div class="alert alert-danger my-2" role="alert">
+                                        Please Enter Option2.
+                                      </div>
+                            </div>
+                            <div ng-show="Form2.option3.$touched && Form2.option3.$invalid ">
+                                    <div class="alert alert-danger my-2" role="alert">
+                                            Please Enter Option3.
+                                          </div>
+                                </div>
+                                <div ng-show="Form2.option4.$touched && Form2.option4.$invalid ">
+                                        <div class="alert alert-danger my-2" role="alert">
+                                                Please Enter Option4.
+                                              </div>
+                                    </div>
+                    
+                    <div class="md-form">
+                        <label class='active' for="Points">Points</label>
+                        <input name='points' ng-model='sTestCtrl.quesData.points' value="sTestCtrl.quesData.points" type="number" ng-required="true" class="form-control validate" id="Points">
+                    </div>
+                    <div ng-show="Form2.points.$touched && Form2.points.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please Enter Points.
+                                  </div>
+                        </div>
+                    <label class="my-2 mr-2" for="inlineFormCustomSelectPref">Answer</label>
+                    <select name='dropdown1' class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelectPref" ng-model="sTestCtrl.quesData.answer" ng-required='true'>
+                        
+                        <option ng-selected = 'sTestCtrl.quesData.answer == 1' value="1">1</option>
+                        <option ng-selected = 'sTestCtrl.quesData.answer == 2' value="2">2</option>
+                        <option ng-selected = 'sTestCtrl.quesData.answer == 3' value="3">3</option>
+                        <option ng-selected = 'sTestCtrl.quesData.answer == 4' value="4">4</option>
+                    </select>
+                    <div ng-show="Form2.dropdown1.$touched && Form2.dropdown1.$invalid ">
+                            <div class="alert alert-danger my-2" role="alert">
+                                    Please select Answer option.
+                            </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" ng-disabled='Form2.$invalid' ng-click='sTestCtrl.updateQuestion(sTestCtrl.quesData)' data-dismiss="modal" class="btn btn-primary">Update</button>
+
+            </div>
+        </div>
+    </div>
+</div>

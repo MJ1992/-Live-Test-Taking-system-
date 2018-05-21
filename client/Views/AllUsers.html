@@ -1,0 +1,18 @@
+<div class="row ">
+    
+        <div class="col-md-12 ml-auto mr-auto">
+                
+            <div class="card">
+                    <div class="card-header grey darken-3 z-depth-1  white-text">All Users</div>
+                <div class="card-body">
+                    <ul class="list-group">
+    
+                        <li ng-repeat="user in usersCtrl.users  " class="list-group-item my-2 hoverable">
+                            <user-card ng-if="!user.isAdmin"></user-card>
+    
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,126 @@
+<div class="card">
+    <div class="card-header  mdb-color darken-3    white-text text-center">Result</div>
+    <div class="card-body">
+
+<div class="row mt-2  card-deck">
+    
+    <div class="col-md-4 ">
+        <div class="card pb-5">
+            <div class="card-header success-color lighten-3 white-text"></div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Marks Scored</h4>
+                <hr>
+                <h4> <b> {{pointsScored.toFixed(2)}}/{{totalPoints.toFixed(2)}} </b> </h4>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-header deep-orange lighten-1  white-text"></div>
+                <div class="card-body text-center">
+                    <h4 class="card-title">Test Details</h4>
+                    <hr>
+                    <h4>
+                        <b> {{testResultData.testId.name}} </b>
+                    </h4>
+                    <h6> {{testResultData.testId.details}} </h6>
+                    <h6>Duration: {{testResultData.testId.duration}} min. </h6>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-4">
+        <div class="card pb-5">
+            <div class="card-header primary-color lighten-3 white-text"></div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Percentage</h4>
+                <!--Change chart-->
+                <hr>
+                <h4>
+                    <b> {{percentage.toFixed(2)}} % </b>
+                </h4>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row my-5 text-center mx-auto big">
+
+
+<div class="col-md-8  mx-auto ">
+        <div class="card">
+            <div class="card-header secondary-color lighten-3 white-text"></div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Answers</h4>
+                <hr>
+                
+                <canvas id="pieChart"></canvas>
+                        
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row my-5 text-center mx-auto small">
+
+
+        <div class="col-md-6  mx-auto ">
+                <div class="card">
+                    <div class="card-header secondary-color lighten-3 white-text"></div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Answers</h4>
+                        <hr>
+                        <span><h5> <b> Correct </b> :{{correct}} </h5></span>
+                        <span> <h5>    <b> Incorrect </b> :{{incorrect}} </h5></span>
+                        <span> <h5> <b> Not Answered </b> :{{unanswered}} </h5> </span>
+                                
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="row my-2">
+    <div class="col ml-auto mr-auto">
+        <div class="card">
+            <div class="card-header grey darken-4 white-text ">Test Details</div>
+            <div class="card-body z-depth-2">
+
+                <ul class="list-group">
+
+                    <li ng-repeat="question in  testResultData.questionsWithAnswers" class="list-group-item my-2 hoverable">
+                            <div>
+
+                                    <h5>
+                                        <span class="pull-left">Q.{{($index+1) }} </span><span><b>{{"&nbsp; "+ question.quesStatement}}</b> </span>
+                                        <span>
+                                            <h6 class="pull-right"> <b> Points: </b> {{question.points}}</h6>
+                                        </span>
+                                    </h5>
+                                    <hr>
+                                    <ul class="list-group">
+                                        <li class="list-group-item my-1" ng-repeat="option in question.options" 
+                                        
+                                        ng-class="{  'success-color': question.selectedOption =={{$index+1}} && question.selectedOption == question.answer,'btn-danger': (question.selectedOption !== question.answer) && (question.selectedOption =={{$index+1}}), 'success-color':question.answer =={{$index+1}},'speacial-color': question.selectedOption == null}"
+                                        ><span>{{$index+1 +".) "}} </span> {{option}}</li>
+                                    </ul>
+                                <hr>
+                                    <br>
+
+                                    <span>
+                                             <b>Answer:</b>  {{question.answer}} 
+                                        </span>
+                                    <span>
+                                            <h6 class="pull-right"> <b>Time taken:</b> {{question.timeTaken }} </h6>
+                                        </span>
+                 
+                                </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>

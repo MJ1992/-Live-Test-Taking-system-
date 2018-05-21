@@ -1,0 +1,29 @@
+<div class="card mt-3">
+    <div class="card-header special-color white-text">
+        Test Info
+    </div>
+    <div class="card-body">
+
+        <form>
+            <div class="md-form">
+                    <i class="fa fa-header prefix"></i>
+                <label for="name">Name</label>
+                <input type="text" ng-model='CreateCtrl.data.name' class="form-control" id="name" aria-describedby="">
+            </div>
+            <div class="md-form">
+                    <i class="fa fa-pencil prefix"></i>
+                <label for="details">Details</label>
+                <textarea type="text" ng-model='CreateCtrl.data.details' class="form-control md-textarea" id="details" ></textarea>
+            </div>
+            <div class="md-form">
+                    <i class="fa fa-clock-o prefix"></i>
+                <label for="duration">Test Duration (in min.)</label>
+                <input type="number" ng-model='CreateCtrl.data.duration' class="form-control" id="duration">
+            </div>
+
+            <a  class="btn btn-primary" ng-click="CreateCtrl.createTest(CreateCtrl.data)">Submit</a>
+        </form>
+
+    </div>
+</div>
+</div>

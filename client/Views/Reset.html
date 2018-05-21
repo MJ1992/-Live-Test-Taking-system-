@@ -1,0 +1,79 @@
+<div class="col-sm-12 m7">
+    <div class="center-align">
+        <h4 class="header">Reset Password</h4>
+    </div>
+
+    <div class="card horizontal">
+
+        <div class="card-stacked">
+            <div class="card-content">
+                <div class="row">
+                    <form name="Form" class="col-sm-12">
+                        <div class="row">
+                            <div class="input-field col-sm-12">
+                                <i class="material-icons prefix">vpn_key</i>
+                                <input ng-model='ResetCtrl.data.password' id="password" name="password" type="password" ng-required='true' class="validate">
+                                <label for="password">New Password</label>
+                            </div>
+                            <div ng-show="Form.password.$touched && Form.password.$invalid ">
+                                <div class="row" id="alert_box">
+                                    <div class="col-sm-12 m12">
+                                        <div class="card red lighten-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 m10">
+                                                    <div class="card-content white-text">
+                                                        <p>Please enter the new password </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col-sm-12">
+                                <i class="material-icons prefix">vpn_key</i>
+                                <input ng-model='ResetCtrl.data.confirm' name="confirm" id="confirm" type="password" ng-required='true' class="validate">
+                                <label for="confirm">Confirm Password</label>
+                            </div>
+                            <div ng-show="Form.confirm.$touched && Form.confirm.$invalid ">
+                                <div class="row" id="alert_box">
+                                    <div class="col-sm-12 m12">
+                                        <div class="card red lighten-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 m10">
+                                                    <div class="card-content white-text">
+                                                        <p>Please re-enter the Password </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+            <div class="card-action center-align">
+                <span>Don't Have an Account? <a href="#!/signup">Register Here</a></span><br>
+                <span>Remember you password? <a href="#!/login">Login Here</a></span>
+                <br>
+                <hr>
+                <a class="waves-effect waves-light btn" href ng-click="ResetCtrl.resetPassword(ResetCtrl.resetToken,ResetCtrl.data)" ng-disabled="Form.$invalid">Reset Password</a>
+
+            </div>
+        </div>
+    </div>
+</div>

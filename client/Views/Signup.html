@@ -1,0 +1,148 @@
+<div class="col-sm-12 m7">
+    <div class="text-center">
+        <h4 class="header">Sign Up Form</h4>
+    </div>
+    <div class="card ">
+        <div class="card-body">
+            
+
+
+    <!-- Material form register -->
+                          
+                
+                    <form name="Form" class="col-sm-12" novalidate>
+
+                            <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" ng-model='SignUpCtrl.data.username' name="username" id="username" type="text" ng-required='true' class="validate form-control">
+                                    <label  for="username">Your name</label>
+                            </div>
+
+                            <div ng-show="Form.username.$touched && Form.username.$invalid ">
+                                <div class="row" id="alert_box">
+                                    <div class="col-sm-12 m12">
+                                        <div class="card red lighten-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 m10">
+                                                    <div class="card-content white-text">
+                                                        <p>Please enter the Username </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input type="password" ng-model='SignUpCtrl.data.password' name="password" id="password" type="password" ng-required='true' class="validate form-control">
+                                    <label  for="password">Password</label>
+                            </div>
+
+                            <div ng-show="Form.password.$touched && Form.password.$invalid ">
+                                <div class="row" id="alert_box">
+                                    <div class="col-sm-12 m12">
+                                        <div class="card red lighten-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 m10">
+                                                    <div class="card-content white-text">
+                                                        <p>Please enter the Password </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                            
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input ng-model='SignUpCtrl.data.email' name="email" id="email" type="email" ng-required='true' class="validate form-control">
+                                <label  for="email">Email</label>
+                            </div>
+                            <div ng-show="Form.email.$touched && Form.email.$invalid ">
+                                <div class="row" id="alert_box">
+                                    <div class="col-sm-12 m12">
+                                        <div class="card red lighten-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 m10">
+                                                    <div class="card-content white-text">
+                                                        <p>Please enter a Valid Email </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="md-form">
+                                <i class="fa fa-phone prefix grey-text"></i>
+                                <input ng-model='SignUpCtrl.data.mobile' name="mobile" id="mobile" type="number" ng-required='true' class="validate form-control">
+                                <label  for="mobile">Mobile Number</label>
+                            </div>
+                            <div ng-show="Form.mobile.$touched && Form.mobile.$invalid ">
+                                <div class="row" id="alert_box">
+                                    <div class="col-sm-12 m12">
+                                        <div class="card red lighten-2">
+                                            <div class="row">
+                                                <div class="col-sm-12 m10">
+                                                    <div class="card-content white-text">
+                                                        <p>Please enter the Mobile No. </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+
+                            <div class="form-check  mt-3 mb-2 mr-sm-2">
+                                    <input ng-model='SignUpCtrl.data.isAdmin' class="form-check-input" type="checkbox" id="inlineFormCheckMD">
+                                    <label class="form-check-label" for="inlineFormCheckMD">
+                                            Sign Up as Admin
+                                    </label>
+                             </div>
+                        
+                            
+                 
+
+                    </form>
+                    
+                <div ng-if="SignUpCtrl.error">
+                        <div class="alert alert-danger my-2" role="alert">
+                                {{SignUpCtrl.error}}
+                              </div>
+                    </div>
+                
+                
+        </div>
+        <div class="card-action text-center">
+                <span>Already have an Account? <a href="#!/login">Login Here</a></span><br>
+                                <hr>
+             <a class="waves-effect waves-light btn btn-primary" ng-click="SignUpCtrl.SignUp(SignUpCtrl.data)" ng-disabled="Form.$invalid">Sign up</a>
+             <br>
+             <span class="grey-text"> Or
+                 </span>
+                 <br>
+             <a class="btn btn-danger waves-effect" href='http://localhost:4000/auth/google' > SignUp with Google &nbsp; <i class="fa fa-google" aria-hidden="true"></i></a>
+            
+
+        </div>
+        
+    </div>
+</div>
