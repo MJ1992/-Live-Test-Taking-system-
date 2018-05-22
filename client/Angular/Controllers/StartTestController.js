@@ -11,7 +11,6 @@ app.controller('StartTestController', ['$http', 'DataSVC', '$routeParams', '$loc
     this.selectedOption = null;
     this.timeTaken = 0;
     this.Timer = {};
-    //this.dateNow = new Date();
     
 
     this.startTest = function () {
@@ -98,7 +97,7 @@ app.controller('StartTestController', ['$http', 'DataSVC', '$routeParams', '$loc
         SocketSVC.emit('TestData',{result:resultData,currentUser: main.currentUser});
        
         SocketSVC.on('result',function(data){
-           $window.location.assign('#!/tests/'+ data._id + '/result');
+           $window.location.assign('/tests/'+ data._id + '/result');
             $('.modal-backdrop').remove();
         });
 

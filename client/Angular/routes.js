@@ -1,5 +1,5 @@
 //var app = angular.module('SupDesk', ['ngRoute']);
-app.config(function($routeProvider) {
+app.config(function($routeProvider,$locationProvider) {
     $routeProvider.when('/tests', {
         templateUrl: 'Views/tests.html',
         controller: "AllTestsController",
@@ -63,4 +63,8 @@ app.config(function($routeProvider) {
     otherwise({
         redirectTo: '/dashboard'
     });
+
+    // Add HTML5 History API support
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('');
 });

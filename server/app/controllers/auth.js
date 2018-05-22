@@ -182,7 +182,7 @@ module.exports.controller = function (app) {
                         subject: 'PMCAT Password Reset',
                         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                             'Please click on the following link, or paste this into your browser to reset your password:\n\n' +
-                            '' + req.headers.referer + '#!/reset/' + token + '\n\n' +
+                            '' + req.headers.referer + '/reset/' + token + '\n\n' +
                             'If you did not request this, please feel free to ignore this email and your password will remain unchanged.\n\n' +
                             'Thanks, \n' + 'The PMCAT Team'
                     };
@@ -327,7 +327,7 @@ module.exports.controller = function (app) {
         // }));
         //res.set('x-token', token);
         console.log(req.headers, req.headers.referer);
-        res.redirect(req.headers.referer + '#!/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin);
+        res.redirect(req.headers.referer + '/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin);
 
 
     });

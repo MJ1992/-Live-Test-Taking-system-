@@ -7,8 +7,8 @@
                 <div class="card-body">
                     <ul class="list-group">
     
-                        <li ng-repeat="user in usersCtrl.users  " class="list-group-item my-2 hoverable">
-                            <user-card ng-if="!user.isAdmin"></user-card>
+                        <li ng-repeat="user in usersCtrl.users  " ng-hide='user.isAdmin' class="list-group-item my-2 hoverable">
+                            <user-card ></user-card>
     
                         </li>
                     </ul>

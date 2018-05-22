@@ -4,30 +4,30 @@
             <img class='img-responsive' ng-hide="currentUser == ''"  ng-src="https://ui-avatars.com/api/?name={{currentUser}}&background=0D8ABC&color=fff&size=128&length=1" alt="">
         </div>
         <div class="card-body bg-dark white-text items">
-            <h4 class="card-title">{{currentUser}}</h4>
+            <h4 class="card-title mx-2"><span style="width: 80%">{{currentUser}}</span></h4>
             
         <ul class="list-group  ">
             <li class="list-group-item bg-dark" ng-show='loggedIn && !isAdmin'>
-                <a class='btn btn-dark active navbarButton' href="#!/dashboard">Dashboard </a>
+                <a class='btn btn-dark active navbarButton' href="/dashboard">Dashboard </a>
             </li>
             <li class="list-group-item bg-dark" ng-show='loggedIn && !isAdmin'>
-                <a class='btn btn-dark navbarButton' href="#!/tests">Take a Test </a>
+                <a class='btn btn-dark navbarButton' href="/tests">Take a Test </a>
             </li>
             <li class="list-group-item bg-dark" ng-show='loggedIn && isAdmin'>
-                    <a class='btn btn-dark navbarButton' href="#!/users">All users </a>
+                    <a class='btn btn-dark navbarButton' href="/users">All users </a>
                 </li>
             <li class="list-group-item bg-dark" ng-show='loggedIn && isAdmin'>
-                <a class='btn btn-dark navbarButton' href="#!/new">Create a Test </a>
+                <a class='btn btn-dark navbarButton' href="/new">Create a Test </a>
             </li>
             <li class="list-group-item bg-dark" ng-show='loggedIn && isAdmin'>
-                <a class='btn btn-dark navbarButton' href="#!/tests">All Tests </a>
+                <a class='btn btn-dark navbarButton' href="/tests">All Tests </a>
             </li>
             
             <li class="list-group-item bg-dark" ng-show='!loggedIn'>
-                <a class='btn btn-dark navbarButton' href="#!/login">Login </a>
+                <a class='btn btn-dark navbarButton' href="/login">Login </a>
             </li>
             <li class="list-group-item bg-dark" ng-show='!loggedIn'>
-                <a class='btn btn-dark navbarButton' href="#!/signup">Sign Up </a>
+                <a class='btn btn-dark navbarButton' href="/signup">Sign Up </a>
             </li>
 
         </ul>
@@ -35,7 +35,7 @@
             
         <div ng-show='loggedIn' class="">
             <li class="list-group-item bg-dark" ng-show='loggedIn'>
-                <a class='btn btn-dark navbarButton' href="#!/login" ng-click="logOut()">Logout </a>
+                <a class='btn btn-dark navbarButton' href="/login" ng-click="logOut()">Logout </a>
             </li>
 
         </div>

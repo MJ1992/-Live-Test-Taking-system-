@@ -8,7 +8,7 @@
 
                     <li ng-repeat="test in testsCtrl.tests " class="list-group-item my-2 hoverable">
                         <test-card></test-card>
-                        <button  class=" btn btn-dark" data-toggle="modal" data-target="#startTest" ng-click='testsCtrl.getId(test._id)'>Start Test</button>
+                        <button ng-if='!testsCtrl.isAdminUser' class=" btn btn-dark" data-toggle="modal" data-target="#startTest" ng-click='testsCtrl.getId(test._id)'>Start Test</button>
 
                     </li>
                 </ul>

@@ -10,7 +10,7 @@ app.controller('AllTestsController', ['$http', 'DataSVC', '$routeParams','$windo
 
 
     this.startTest = function(){
-        window.open('#!/tests/'+main.testId+'/StartTest', '_blank', "width="+screen.availWidth+",height="+screen.availHeight);
+        window.open('/tests/'+main.testId+'/StartTest', '_blank', "width="+screen.availWidth+",height="+screen.availHeight);
         $location.path('/tests');
     };
 
@@ -37,7 +37,7 @@ app.controller('AllTestsController', ['$http', 'DataSVC', '$routeParams','$windo
     SocketSVC.on('result',function(data){
               
        $location.path('/tests/'+ data._id + '/result');
-        $window.location.assign('#!/tests/'+ data._id + '/result');
+        $window.location.assign('/tests/'+ data._id + '/result');
     });
 
 }]);

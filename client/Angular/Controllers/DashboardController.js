@@ -7,10 +7,14 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
     this.numberOfTestTaken = '';
     if(angular.fromJson($window.localStorage.currentUser)){
         this.currentUser = angular.fromJson($window.localStorage.currentUser).email;
+
     }else {
         this.currentUser = $location.search().email;
         $window.localStorage.currentUser = angular.toJson({ email: $location.search().email, token: $location.search().token,isAdmin: $location.search().admin });
 
+    }
+    if(angular.fromJson($window.localStorage.currentUser).isAdmin){
+        $location.path('/users');
     }
 
     this.currentUserDetails = function () {
