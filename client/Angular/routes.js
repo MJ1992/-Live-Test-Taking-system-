@@ -60,8 +60,13 @@ app.config(function($routeProvider,$locationProvider) {
         controllerAs: "DashboardCtrl"
 
     }).
+    
+    when('/', {
+        templateUrl: 'Views/Home.html',
+
+    }).
     otherwise({
-        redirectTo: '/dashboard'
+        redirectTo: '/'
     });
 
     // Add HTML5 History API support
