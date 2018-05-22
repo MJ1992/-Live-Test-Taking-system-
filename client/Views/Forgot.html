@@ -1,54 +1,35 @@
 <div class="col-sm-12 ">
-    <div class="center-align">
+    <div class="text-center">
         <h4 class="header">Forgot password</h4>
     </div>
     <div ng-show="ForgotCtrl.message">
-        <div class="row" id="alert_box">
-            <div class="col-sm-12 ">
-                <div class="card red lighten-2">
-                    <div class="row">
-                        <div class="col-sm-12  col-md-10">
-                            <div class="card-content white-text">
-                                <p>{{ForgotCtrl.message}} </p>
+            <div class="alert alert-danger my-2" role="alert">
+                    {{ForgotCtrl.message}}
+                  </div>
 
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="card horizontal">
+    <div class="card">
 
-        <div class="card-stacked">
-            <div class="card-content">
+        <div class="card-body">
+            
                 <div class="row">
-                    <form name="Form" class="col s12">
+                    <form name="Form" class="col-sm-12">
 
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="col-sm-12">
+                                <div class="md-form">
                                 <i class="material-icons prefix">email</i>
-                                <input ng-model='ForgotCtrl.data.email' name="email" id="email" type="email" ng-required='true' class="validate">
+                                <input ng-model='ForgotCtrl.data.email' name="email" id="email" type="email" ng-required='true' class="form-control validate">
                                 <label for="email">Email</label>
                             </div>
+                        </div>
+                            
+                        </div>
                             <div ng-show="Form.email.$touched && Form.email.$invalid ">
-                                <div class="row" id="alert_box">
-                                    <div class="col s12 m12">
-                                        <div class="card red lighten-2">
-                                            <div class="row">
-                                                <div class="col s12 m10">
-                                                    <div class="card-content white-text">
-                                                        <p>Please enter the email </p>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                    <div class="alert alert-danger my-2" role="alert">
+                                            Please Enter the Email.
                                     </div>
-                                </div>
                             </div>
 
                         </div>
@@ -57,13 +38,12 @@
 
                 </div>
 
-            </div>
-            <div class="card-action center-align">
+            <div class="card-footer text-center mt-2">
                 <span>Remember you password? <a href="/login">Login Here</a></span><br>
                 <span>Don't Have an Account? <a href="/signup">Register Here</a></span>
                 <br>
                 <hr>
-                <a class="waves-effect waves-light btn" href ng-click="ForgotCtrl.forgot(ForgotCtrl.data)" ng-disabled="Form.$invalid">Submit</a>
+                <a class="waves-effect waves-light btn btn-dark" href ng-click="ForgotCtrl.forgot(ForgotCtrl.data)" ng-disabled="Form.$invalid">Submit</a>
 
             </div>
         </div>

@@ -10,7 +10,6 @@ app.controller('ResetController', ['$http', 'AuthSVC', '$routeParams', '$window'
                 console.log(response.data);
                 if (response.data.error) {
                     main.message = response.data.message;
-                    M.toast({ html: response.data.message });
                     $timeout(function() {
                         $location.path('/login');
                     }, 3000);
@@ -23,7 +22,7 @@ app.controller('ResetController', ['$http', 'AuthSVC', '$routeParams', '$window'
             }, function errorCallBack(response) {
                 console.log("Error");
             });
-        },
+        };
         this.resetPassword = function(token, data) {
 
 
@@ -31,14 +30,12 @@ app.controller('ResetController', ['$http', 'AuthSVC', '$routeParams', '$window'
                 console.log(response.data);
                 if (response.data.error) {
                     main.message = response.data.message;
-                    M.toast({ html: response.data.message });
                     $timeout(function() {
                         $location.path('/login');
                     }, 3000);
 
 
                 } else {
-                    M.toast({ html: response.data.message });
                     $timeout(function() {
                         $location.path('/login');
                     }, 1000);

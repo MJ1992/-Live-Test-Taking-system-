@@ -182,7 +182,7 @@ module.exports.controller = function (app) {
                         subject: 'PMCAT Password Reset',
                         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                             'Please click on the following link, or paste this into your browser to reset your password:\n\n' +
-                            '' + req.headers.referer + '/reset/' + token + '\n\n' +
+                            '' + 'http://ec2-18-217-210-184.us-east-2.compute.amazonaws.com' + '/reset/' + token + '\n\n' +
                             'If you did not request this, please feel free to ignore this email and your password will remain unchanged.\n\n' +
                             'Thanks, \n' + 'The PMCAT Team'
                     };
