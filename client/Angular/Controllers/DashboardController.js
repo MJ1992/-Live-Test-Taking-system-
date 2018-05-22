@@ -16,6 +16,9 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
     if(angular.fromJson($window.localStorage.currentUser).isAdmin){
         $location.path('/users');
     }
+    if(!angular.fromJson($window.localStorage.currentUser)){
+        $location.path('/login');
+    }
 
     this.currentUserDetails = function () {
 
