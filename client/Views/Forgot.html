@@ -3,49 +3,54 @@
         <h4 class="header">Forgot password</h4>
     </div>
     <div ng-show="ForgotCtrl.message">
-            <div class="alert alert-danger my-2" role="alert">
-                    {{ForgotCtrl.message}}
-                  </div>
+        <div class="alert alert-danger my-2" role="alert">
+            {{ForgotCtrl.message}}
+        </div>
 
     </div>
 
     <div class="card">
 
         <div class="card-body">
-            
-                <div class="row">
-                    <form name="Form" class="col-sm-12">
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="md-form">
+            <div class="row">
+                <form name="Form" class="col-sm-12">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="md-form">
                                 <i class="material-icons prefix">email</i>
                                 <input ng-model='ForgotCtrl.data.email' name="email" id="email" type="email" ng-required='true' class="form-control validate">
                                 <label for="email">Email</label>
                             </div>
                         </div>
-                            
+
+                    </div>
+                    <div ng-show="Form.email.$touched && Form.email.$invalid ">
+                        <div class="alert alert-danger my-2" role="alert">
+                            Please Enter the Email.
                         </div>
-                            <div ng-show="Form.email.$touched && Form.email.$invalid ">
-                                    <div class="alert alert-danger my-2" role="alert">
-                                            Please Enter the Email.
-                                    </div>
-                            </div>
-
-                        </div>
-                    </form>
-
-
-                </div>
-
-            <div class="card-footer text-center mt-2">
-                <span>Remember you password? <a href="/login">Login Here</a></span><br>
-                <span>Don't Have an Account? <a href="/signup">Register Here</a></span>
-                <br>
-                <hr>
-                <a class="waves-effect waves-light btn btn-dark" href ng-click="ForgotCtrl.forgot(ForgotCtrl.data)" ng-disabled="Form.$invalid">Submit</a>
+                    </div>
 
             </div>
+            </form>
+
+
+        </div>
+
+        <div class="card-footer text-center mt-2">
+            <span>Remember you password?
+                <a href="/login">Login Here</a>
+            </span>
+            <br>
+            <span>Don't Have an Account?
+                <a href="/signup">Register Here</a>
+            </span>
+            <br>
+            <hr>
+            <a class="waves-effect waves-light btn btn-dark" href ng-click="ForgotCtrl.forgot(ForgotCtrl.data)" ng-disabled="Form.$invalid">Submit</a>
+
         </div>
     </div>
+</div>
 </div>

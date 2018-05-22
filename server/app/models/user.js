@@ -13,8 +13,6 @@ var userSchema = new mongoose.Schema({
     
     mobile: {
         type: Number,
-        
-        unique: true
 
     },
     isAdmin: {
