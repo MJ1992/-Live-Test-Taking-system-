@@ -7,12 +7,16 @@
 
         <div class="card-body">
 
-
-            <form name="Form" class="col-sm-12">
-                    <div class="md-form col-sm-12">
-                        <i class="material-icons prefix">vpn_key</i>
-                        <input ng-model='ResetCtrl.data.password' id="password" name="password" type="password" ng-required='true' class="validate">
-                        <label for="password">New Password</label>
+            <div class="row">
+                <form name="Form" class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="md-form ">
+                                <i class="material-icons prefix">vpn_key</i>
+                                <input ng-model='ResetCtrl.data.password' id="password" name="password" type="password" ng-required='true' class="validate">
+                                <label for="password">New Password</label>
+                            </div>
+                        </div>
                     </div>
                     <div ng-show="Form.password.$touched && Form.password.$invalid ">
                         <div class="row" id="alert_box">
@@ -30,11 +34,14 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="md-form col-sm-12">
-                            <i class="material-icons prefix">vpn_key</i>
-                            <input ng-model='ResetCtrl.data.confirm' name="confirm" id="confirm" type="password" ng-required='true' class="validate">
-                            <label for="confirm">Confirm Password</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="md-form ">
+                                    <i class="material-icons prefix">vpn_key</i>
+                                    <input ng-model='ResetCtrl.data.confirm' name="confirm" id="confirm" type="password" ng-required='true' class="validate">
+                                    <label for="confirm">Confirm Password</label>
+                                </div>
+                            </div>
                         </div>
                         <div ng-show="Form.confirm.$touched && Form.confirm.$invalid ">
                             <div class="row" id="alert_box">
@@ -53,8 +60,8 @@
                                 </div>
                             </div>
                         </div>
-            </form>
-
+                </form>
+                </div>
 
             </div>
             <div class="card-footer text-center mt-2">
