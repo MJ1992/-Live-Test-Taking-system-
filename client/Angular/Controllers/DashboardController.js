@@ -5,6 +5,11 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
     this.averageScore = '';
     this.averagePercentage = '';
     this.numberOfTestTaken = '';
+    if(!angular.fromJson($window.localStorage.currentUser)){
+        $location.path('/login');
+    }
+    
+    
     if(angular.fromJson($window.localStorage.currentUser)){
         this.currentUser = angular.fromJson($window.localStorage.currentUser).email;
 
@@ -16,9 +21,7 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
     if(angular.fromJson($window.localStorage.currentUser).isAdmin){
         $location.path('/users');
     }
-    if(!angular.fromJson($window.localStorage.currentUser)){
-        $location.path('/login');
-    }
+    
 
     this.currentUserDetails = function () {
 
@@ -80,13 +83,10 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
                     }
                 }
             });
-
-
-
-
         }, function errorCallBack(response) {
 
             console.log("Error");
+            $location.path('/login');
         });
 
 

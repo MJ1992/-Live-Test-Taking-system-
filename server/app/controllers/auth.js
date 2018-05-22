@@ -302,6 +302,7 @@ module.exports.controller = function (app) {
         scope: ['profile', 'email']
     }), function (req, res) {
         res.send(scope);
+        console.log(req.headers);
 
 
     });
@@ -326,9 +327,13 @@ module.exports.controller = function (app) {
         //     token: token
         // }));
         //res.set('x-token', token);
-        console.log(req.headers, req.headers.referer);
-        res.redirect(req.headers.referer + '/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin);
-
+        //console.log(req);
+        //console.log( req.headers.referer);
+        //res.redirect(req.headers.referer + '/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin);
+        res.writeHead(301,
+            {Location: 'http://ec2-18-217-210-184.us-east-2.compute.amazonaws.com/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin}
+          );
+          res.end();
 
     });
 
