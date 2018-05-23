@@ -15,7 +15,7 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
 
     }else {
         this.currentUser = $location.search().email;
-        $window.localStorage.currentUser = angular.toJson({ email: $location.search().email, token: $location.search().token,isAdmin: $location.search().admin });
+        $window.localStorage.currentUser = angular.toJson({ email: $location.search().email, token: $location.search().token,isAdmin: false });
 
     }
     if(angular.fromJson($window.localStorage.currentUser).isAdmin){
