@@ -152,6 +152,9 @@ app.controller('StartTestController', ['$http', 'DataSVC', '$routeParams', '$loc
 
         }, 1000);
       };
+      $("#loader").click(function () {
+        $(".overlay").show();
+    });
 
 this.startTest();
 }]);
