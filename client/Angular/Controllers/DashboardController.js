@@ -5,9 +5,7 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
     this.averageScore = '';
     this.averagePercentage = '';
     this.numberOfTestTaken = '';
-    if(!angular.fromJson($window.localStorage.currentUser)){
-        $location.path('/login');
-    }
+    
     
     
     if(angular.fromJson($window.localStorage.currentUser)){
@@ -22,6 +20,9 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
         $location.path('/users');
     }
     
+    if(!angular.fromJson($window.localStorage.currentUser)){
+        $location.path('/login');
+    }
 
     this.currentUserDetails = function () {
 
