@@ -145,6 +145,7 @@ app.controller('StartTestController', ['$http', 'DataSVC', '$routeParams', '$loc
             clearInterval(TimerInterval);
             main.Timer = 'Time is up';
             main.submitTest();
+            $(".overlay").show();
             }else if( main.TimeUp==true) {
                 clearInterval(TimerInterval);
             }
@@ -153,6 +154,7 @@ app.controller('StartTestController', ['$http', 'DataSVC', '$routeParams', '$loc
         }, 1000);
       };
       $("#loader").click(function () {
+        $("#submitTest").modal('toggle');
         $(".overlay").show();
     });
 
