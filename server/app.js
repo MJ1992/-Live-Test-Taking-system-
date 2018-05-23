@@ -35,7 +35,15 @@ db = mongoose.connect(dbPath);
 mongoose.connection.once('open', function() {
     console.log("database Connection success");
 });
-app.use(cors());
+
+
+ 
+var corsOptions = {
+    origin: 'http://ec2-18-191-78-6.us-east-2.compute.amazonaws.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+
+app.use(cors(corsOptions));
 
 //Passport Configurations
 

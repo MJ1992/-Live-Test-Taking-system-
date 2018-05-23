@@ -1,5 +1,5 @@
 app.service('SocketSVC', [function () {
-    var baseUrl = "http://localhost:4000/";
+    var baseUrl = "http://ec2-18-217-210-184.us-east-2.compute.amazonaws.com/";
     var socket = io.connect(baseUrl);
 
 

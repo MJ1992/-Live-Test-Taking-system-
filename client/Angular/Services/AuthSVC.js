@@ -1,5 +1,5 @@
 app.service('AuthSVC', ['$http', function ($http) {
-    var baseUrl = "http://localhost:4000/";
+    var baseUrl = "http://ec2-18-217-210-184.us-east-2.compute.amazonaws.com/";
     this.login = function (data) {
         return $http({
             method: "POST",

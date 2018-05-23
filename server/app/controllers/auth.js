@@ -182,7 +182,7 @@ module.exports.controller = function (app) {
                         subject: 'PMCAT Password Reset',
                         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                             'Please click on the following link, or paste this into your browser to reset your password:\n\n' +
-                            '' + 'http://ec2-18-217-210-184.us-east-2.compute.amazonaws.com' + '/reset/' + token + '\n\n' +
+                            '' + 'http://ec2-18-191-78-6.us-east-2.compute.amazonaws.com' + '/reset/' + token + '\n\n' +
                             'If you did not request this, please feel free to ignore this email and your password will remain unchanged.\n\n' +
                             'Thanks, \n' + 'The PMCAT Team'
                     };
@@ -331,7 +331,7 @@ module.exports.controller = function (app) {
         //console.log( req.headers.referer);
         //res.redirect(req.headers.referer + '/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin);
         res.writeHead(301,
-            {Location: 'http://ec2-18-217-210-184.us-east-2.compute.amazonaws.com/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin}
+            {Location: 'http://ec2-18-191-78-6.us-east-2.compute.amazonaws.com/dashboard?token=' + token + "&email=" + user.email + "&admin=" + user.isAdmin}
           );
           res.end();
 
