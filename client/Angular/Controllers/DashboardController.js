@@ -1,26 +1,37 @@
-app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$window','$location', function ($http, DataSVC, $routeParams, $window,$location) {
+app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$window', '$location', function ($http, DataSVC, $routeParams, $window, $location) {
     var main = this;
     this.currentUser = '';
     this.userData = '';
     this.averageScore = '';
     this.averagePercentage = '';
     this.numberOfTestTaken = '';
-    
-    
-    
-    if(angular.fromJson($window.localStorage.currentUser)){
+
+
+
+    if (angular.fromJson($window.localStorage.currentUser)) {
         this.currentUser = angular.fromJson($window.localStorage.currentUser).email;
 
-    }else {
+    } else {
         this.currentUser = $location.search().email;
-        $window.localStorage.currentUser = angular.toJson({ email: $location.search().email, token: $location.search().token,isAdmin: false });
-
+        if ($location.search().admin === "false") {
+            $window.localStorage.currentUser = angular.toJson({
+                email: $location.search().email,
+                token: $location.search().token,
+                isAdmin: false
+            });
+        } else {
+            $window.localStorage.currentUser = angular.toJson({
+                email: $location.search().email,
+                token: $location.search().token,
+                isAdmin: true
+            });
+        }
     }
-    if(angular.fromJson($window.localStorage.currentUser).isAdmin){
+    if (angular.fromJson($window.localStorage.currentUser).isAdmin) {
         $location.path('/users');
     }
-    
-    if(!angular.fromJson($window.localStorage.currentUser)){
+
+    if (!angular.fromJson($window.localStorage.currentUser)) {
         $location.path('/login');
     }
 
@@ -39,17 +50,17 @@ app.controller('DashboardController', ['$http', 'DataSVC', '$routeParams', '$win
                 totalScored += test.pointsScored;
 
             });
-            if(main.numberOfTestTaken == 0){
+            if (main.numberOfTestTaken == 0) {
                 main.averageScore = 0;
-            main.averagePercentage = 0;
+                main.averagePercentage = 0;
 
 
-            }else {
+            } else {
                 main.averageScore = (totalScore / (main.numberOfTestTaken)).toFixed(2);
-            main.averagePercentage = (totalScored * 100 / totalScore).toFixed(2);
+                main.averagePercentage = (totalScored * 100 / totalScore).toFixed(2);
 
             }
-            
+
 
 
             //bar-chart
